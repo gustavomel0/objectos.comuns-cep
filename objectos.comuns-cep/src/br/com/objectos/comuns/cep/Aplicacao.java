@@ -16,13 +16,23 @@ public class Aplicacao {
 
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
-		System.out.println("Informe o CEP:");
-		cep = entrada.next();
+		String r = "s";
+		while (r.equals("s")) {
+			System.out.println("Informe o CEP:");
+			cep = entrada.next();
 
-		Cep c = new Cep();
-		c.buscarCep("08461110");
-		System.out.println(c.getLogradouro() + "\n\n" + c.getBairro() + "\n\n"
-				+ c.getCidade() + "\n\n" + c.getEstado());
+			Cep c = new Cep();
+			if (c.buscarCep(cep) == true) {
+				System.out.println("Logradouro: " + c.getLogradouro()
+						+ "\nBairro: " + c.getBairro() + "\nCidade: "
+						+ c.getCidade() + "\nEstado: " + c.getEstado());
+			} else {
+				System.out.println("CEP inexistente.");
+			}
+			System.out.println("\n\nDeseja repetir? (s/n)");
+			r = entrada.next();
+
+		}
 
 	}
 

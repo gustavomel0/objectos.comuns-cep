@@ -24,37 +24,22 @@ public class Cep {
 		return logradouro;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
-
 	public String getCidade() {
 		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
 	}
 
 	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
 	public String getBairro() {
 		return bairro;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public void buscarCep(String cep) {
+	public boolean buscarCep(String cep) {
 		// Cria os parâmetros necessários para se communicar com o site dos
 		// correios
+		boolean valido = false;
 		Map<String, String> parametros = new HashMap<String, String>();
 		parametros.put("cepEntrada", cep);
 		parametros.put("tipoCep", "");
@@ -92,10 +77,10 @@ public class Cep {
 					.text()
 					.substring(elementos.get(2).text().length() - 2,
 							elementos.get(2).text().length());
+			valido = true;
 
-		} else {
-			System.out.println("Cep não encontrado...");
 		}
+		return valido;
 
 	}
 
