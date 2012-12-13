@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Aplicacao {
 	static String cep = "";
 
-	public static void main(String[] args) { asdsadsad
+	public static void main(String[] args) { @marcioendo teste de comentário. Esta é a classe main...
 		Scanner entrada = new Scanner(System.in);
 		String r = "s";
 		while (r.equals("s")) {
